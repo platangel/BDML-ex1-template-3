@@ -13,3 +13,7 @@ summary(linear_imput_model)
 db$predicted_y <- predict(linear_imput_model, newdata = db)
 
 db %>% select(y_salary_m, predicted_y, y_salary_m  ) %>% head() 
+
+db<-  db %>%  mutate(y_salary_m = ifelse(is.na(y_salary_m) == TRUE, predicted_y , y_salary_m))
+
+db %>% select(y_salary_m, predicted_y, y_salary_m  ) %>% head() 
