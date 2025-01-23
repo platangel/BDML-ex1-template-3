@@ -1,6 +1,5 @@
 # Include your code here for you second imputation method
 
-
 db$maxEducLevel<- factor(db$maxEducLevel)
 
 dummy_maxEducLevel <- as.data.frame(model.matrix(~ maxEducLevel - 1, data = db)) 
@@ -18,4 +17,4 @@ db %>% select(y_salary_m, predicted_y, y_salary_m  ) %>% head()
 
 db<-  db %>%  mutate(y_salary_m = ifelse(is.na(y_salary_m) == TRUE, predicted_y , y_salary_m))
 
-db %>% select(y_salary_m, predicted_y, y_salary_m  ) %>% head() 
+db %>% select(y_salary_m, predicted_y, y_salary_m) %>% head() 
